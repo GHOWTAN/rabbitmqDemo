@@ -16,9 +16,7 @@ const getCurrentDate = () =>{
     let date = new Date();
     return date.toISOString();
 }
-//amqp.connect('amqp://rabbitmq3', function(error0, connection) {
-
-amqp.connect('amqp://localhost', function(error0, connection) {
+    amqp.connect('amqp://rabbitmq3', function(error0, connection) {
     if (error0) {
         throw error0;
     }
