@@ -22,6 +22,6 @@ services:
   index:
     depends_on: ['rabbitmq3']
     build:  ./
-    ports: ['8080:8080']
+    ports: ['8070:8080']
 
   

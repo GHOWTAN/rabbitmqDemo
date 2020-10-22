@@ -5,10 +5,10 @@ let intermediate = require('./rabbitMq/Intermediate/intermediate')
 setTimeout(function(){
     intermediate();
     Observer();
-},15000)
+},10000)
 
 http.createServer( function (req, res) {
     res.writeHead(200, {'Content-Type': 'text/plain'});
-    res.write(fs.readFileSync('./rabbitMq/Observer/helloworld.txt', 'utf8'));
+    res.write(fs.readFileSync('./helloworld.txt', 'utf8'));
     res.end();
-}).listen(8080);
+}).listen(8060);
