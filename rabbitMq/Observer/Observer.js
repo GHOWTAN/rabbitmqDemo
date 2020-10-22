@@ -2,6 +2,8 @@
 
 const fs= require('fs');
 
+const Observer =() =>{
+
 fs.writeFile('helloworld.txt', '', function (err) {
     if (err) return console.log(err);
   });
@@ -13,7 +15,7 @@ const getCurrentDate = () =>{
     return date.toISOString();
 }
 
-amqp.connect('amqp://localhost', function(error0, connection) {
+amqp.connect('amqp://rabbitmq3', function(error0, connection) {
     if (error0) {
         throw error0;
     }
@@ -58,3 +60,6 @@ amqp.connect('amqp://localhost', function(error0, connection) {
 
     });
 });
+}
+
+module.exports=Observer;

@@ -1,21 +1,27 @@
 version: '3'
 services:
   rabbitmq3:
-    image: rabbitmq:3-management-alpine
-    build:  ./rabbitMq/
-    container_name: rabbitmq
+    image: rabbitmq:3-alpine
     environment:
       RABBITMQ_ERLANG_COOKIE: "secret cookie"
       RABBITMQ_DEFAULT_USER: "guest"
       RABBUTMQ_DEFAULT_PASS: "guest"
-    ports:
-      - 15672:15672
-      - 5672:5672
+    #ports:
+    #  - 5673:5672 localhost:5673
     #host : container
     #5672:5672 means that port 5672 on host will forward all its traffic
     # to RabbitMQ's main port 5672 in the container. 
     # Same with management plugin's port 15672:15672.
 
+  rabbit-client: 
+    build:
+      context: ./rabbitMq/Original
+      dockerfile: Dockerfile
+
+
   index:
+    depends_on: ['rabbitmq3']
     build:  ./
     ports: ['8080:8080']
+
+  
