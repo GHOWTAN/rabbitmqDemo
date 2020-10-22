@@ -31,9 +31,9 @@ setTimeout(function(){
       },3000)
       console.log("#Start sending message from [ORIG]");
     });
-    /* setTimeout(function() {
+     setTimeout(function() {
       connection.close();
       process.exit(0);
-  }, 10000);*/
+  }, 10000);
   });
 },15000)
